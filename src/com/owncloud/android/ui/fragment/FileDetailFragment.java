@@ -36,6 +36,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.microsoft.azure.engagement.EngagementAgent;
 import com.owncloud.android.MainApp;
 import com.owncloud.android.R;
 import com.owncloud.android.datamodel.FileDataStorageManager;
@@ -353,6 +354,11 @@ public class FileDetailFragment extends FileFragment implements OnClickListener 
             }
             OCFile file = getFile();
 
+            //Report
+            Bundle extras = new Bundle();
+            extras.putString("File", ""+file.getFileName());
+            EngagementAgent.getInstance(getActivity()).sendEvent("file_clicked", extras);
+
             // set file details
             setFilename(file.getFileName());
             setFiletype(file);
@@ -383,6 +389,9 @@ public class FileDetailFragment extends FileFragment implements OnClickListener 
             }
         }
         getView().invalidate();
+
+
+
     }
 
     /**

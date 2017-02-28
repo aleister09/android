@@ -34,6 +34,9 @@ import android.os.Environment;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 
+import com.microsoft.azure.engagement.EngagementAgent;
+import com.microsoft.azure.engagement.EngagementAgentUtils;
+import com.microsoft.azure.engagement.EngagementConfiguration;
 import com.owncloud.android.authentication.PassCodeManager;
 import com.owncloud.android.datamodel.ThumbnailsCacheManager;
 import com.owncloud.android.lib.common.OwnCloudClientManagerFactory;
@@ -78,6 +81,9 @@ public class MainApp extends Application {
 
     @SuppressFBWarnings("ST")    public void onCreate(){
         super.onCreate();
+        if (EngagementAgentUtils.isInDedicatedEngagementProcess(this))
+            return;
+
         MainApp.mContext = getApplicationContext();
 
         SharedPreferences appPrefs =
@@ -155,6 +161,14 @@ public class MainApp extends Application {
                 Log_OC.d(activity.getClass().getSimpleName(), "onDestroy() ending" );
             }
         });
+
+
+        EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+        engagementConfiguration.setConnectionString("Endpoint=ClaroDrive.device.mobileengagement.windows.net;SdkKey=9874a708d7896ef7dd34f8998df22dcf;AppId=cuc000290");
+        EngagementAgent.getInstance(this).init(engagementConfiguration);
+
+
+
     }
 
     public static Context getAppContext() {

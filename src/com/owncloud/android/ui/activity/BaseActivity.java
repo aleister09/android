@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
+import com.microsoft.azure.engagement.EngagementAgent;
+import com.microsoft.azure.engagement.EngagementAgentUtils;
 import com.owncloud.android.MainApp;
 import com.owncloud.android.authentication.AccountUtils;
 import com.owncloud.android.datamodel.FileDataStorageManager;
@@ -260,5 +262,20 @@ public abstract class BaseActivity extends AppCompatActivity {
                 moveTaskToBack(true);
             }
         }
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        String activityNameOnEngagement = EngagementAgentUtils.buildEngagementActivityName(getClass()); // Uses short class name and removes "Activity" at the end.
+        EngagementAgent.getInstance(this).startActivity(this, activityNameOnEngagement, null);
+    }
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        EngagementAgent.getInstance(this).endActivity();
     }
 }
