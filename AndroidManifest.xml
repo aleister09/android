@@ -56,9 +56,14 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+    <!--For Engagement-->
     <uses-permission android:name="android.permission.VIBRATE" />
 
-
+    <!--For Notification-->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="com.owncloud.android.permission.C2D_MESSAGE" />
+    <permission android:name="com.owncloud.android.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
     <application
         android:name=".MainApp"
@@ -276,13 +281,75 @@
                   android:label="@string/manage_space_title"
                   android:theme="@style/Theme.ownCloud" />
 
-
+<!--Para Engagement Analitycs-->
         <service
             android:name="com.microsoft.azure.engagement.service.EngagementService"
             android:exported="false"
             android:label="@string/app_name"
             android:process=":Engagement"/>
 
+        <!--Para Notificaciones-->
+        <meta-data android:name="engagement:gcm:sender" android:value="766422628401\n" />
+
+        <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.owncloud.android" />
+            </intent-filter>
+        </receiver>
+
+        <!--For Reach From Engagement-->
+        <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+            <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+            <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/html" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+            <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog" android:exported="false">
+            <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+                <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+
+        <meta-data android:name="engagement:reach:notification:icon" android:value="@mipmap/ic_launcher" />
 
     </application>
 
