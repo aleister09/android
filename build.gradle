@@ -8,16 +8,20 @@
 buildscript {
     repositories {
         jcenter()
+        maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'io.fabric.tools:gradle:1.+'
     }
 }
 
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
 apply plugin: 'checkstyle'
 apply plugin: 'pmd'
 apply plugin: 'findbugs'
+
 
 ext {
     supportLibraryVersion = '24.2.1'
@@ -35,6 +39,7 @@ repositories {
     flatDir {
         dirs 'libs'
     }
+    maven { url 'https://maven.fabric.io/public' }
 }
 
 dependencies {
@@ -73,6 +78,9 @@ dependencies {
     // fix conflict in dependencies; see http://g.co/androidstudio/app-test-app-conflict for details
     androidTestCompile "com.android.support:support-annotations:${supportLibraryVersion}"
 
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.6@aar') {
+        transitive = true;
+    }
 
 }
 

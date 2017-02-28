@@ -34,6 +34,7 @@ import android.os.Environment;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 
+import com.crashlytics.android.Crashlytics;
 import com.microsoft.azure.engagement.EngagementAgent;
 import com.microsoft.azure.engagement.EngagementAgentUtils;
 import com.microsoft.azure.engagement.EngagementConfiguration;
@@ -48,7 +49,8 @@ import com.owncloud.android.ui.activity.WhatsNewActivity;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import io.fabric.sdk.android.Fabric;
+
 
 
 /**
@@ -79,8 +81,10 @@ public class MainApp extends Application {
     @SuppressWarnings("unused")
     private boolean mBound;
 
+
     @SuppressFBWarnings("ST")    public void onCreate(){
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         if (EngagementAgentUtils.isInDedicatedEngagementProcess(this))
             return;
 

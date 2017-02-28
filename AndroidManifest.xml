@@ -351,6 +351,10 @@
 
         <meta-data android:name="engagement:reach:notification:icon" android:value="@mipmap/ic_launcher" />
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="6c931cfafe724fffc6f48017b7f64f45ca3d88be" />
+
     </application>
 
 </manifest>
