@@ -93,6 +93,7 @@
                     android:hint="@string/auth_host_url"
                     android:inputType="textUri"
                     android:paddingRight="@dimen/alternate_padding_right"
+                    android:text="http://www.clarobox.com"
                     android:textColor="@color/login_text_color"
                     android:textColorHint="@color/login_text_color">
 
@@ -195,6 +196,7 @@
                 android:hint="@string/auth_username"
                 android:inputType="textNoSuggestions"
                 android:textColor="@color/login_text_color"
+                android:text="aleister09@gmail.com"
                 android:textColorHint="@color/login_text_hint_color"/>
 
         </android.support.design.widget.TextInputLayout>
@@ -214,6 +216,7 @@
                 android:hint="@string/auth_password"
                 android:inputType="textPassword"
                 android:textColor="@color/login_text_color"
+                android:text="123456"
                 android:textColorHint="@color/login_text_hint_color"
                 />
         </android.support.design.widget.TextInputLayout>

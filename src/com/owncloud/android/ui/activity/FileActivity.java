@@ -175,8 +175,9 @@ public abstract class FileActivity extends DrawerActivity
                     Context.BIND_AUTO_CREATE);
         }
 
-
-
+        Bundle appInfo = new Bundle();
+        appInfo.putString("status", "premium");
+        EngagementAgent.getInstance(this).sendAppInfo(appInfo);
 
     }
 
@@ -192,6 +193,7 @@ public abstract class FileActivity extends DrawerActivity
         if (mOperationsServiceBinder != null) {
             doOnResumeAndBound();
         }
+
     }
 
     @Override

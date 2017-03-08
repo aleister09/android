@@ -169,6 +169,7 @@ public class MainApp extends Application {
 
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
         engagementConfiguration.setConnectionString("Endpoint=ClaroDrive.device.mobileengagement.windows.net;SdkKey=9874a708d7896ef7dd34f8998df22dcf;AppId=cuc000290");
+
         EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 
