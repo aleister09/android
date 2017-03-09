@@ -177,6 +177,7 @@ public abstract class FileActivity extends DrawerActivity
 
         Bundle appInfo = new Bundle();
         appInfo.putString("status", "premium");
+        appInfo.putInt("version",1);
         EngagementAgent.getInstance(this).sendAppInfo(appInfo);
 
     }

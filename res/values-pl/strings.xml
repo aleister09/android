@@ -51,13 +51,13 @@
     <string name="prefs_remember_last_upload_location_summary">Zapamiętaj ostatnią lokalizację wysyłania</string>
 
 	<string name="recommend_subject">Wypróbuj %1$s na swoim smartfonie!</string>
-	<string name="recommend_text">Zapraszam do użycia %1$s na swoim smartfonie!\\nŚciągnij tutaj: %2$s</string>
+	<string name="recommend_text">Zapraszam do użycia %1$s na swoim smartfonie!\nŚciągnij tutaj: %2$s</string>
 
     <string name="auth_check_server">Sprawdź serwer</string>
     <string name="auth_host_url">Adres serwera https://...</string>
     <string name="auth_username">Nazwa użytkownika</string>
     <string name="auth_password">Hasło</string>
-    <string name="auth_register">Nie masz jeszcze serwera?\\nKliknij tu i zdobądź go od dostawcy</string>
+    <string name="auth_register">Nie masz jeszcze serwera?\nKliknij tu i zdobądź go od dostawcy</string>
     <string name="sync_string_files">Pliki</string>
     <string name="setup_btn_connect">Połącz</string>
     <string name="uploader_btn_upload_text">Wyślij</string>
@@ -83,6 +83,8 @@
     <string name="file_list_loading">Wczytywanie&#8230;</string>
     <string name="file_list_no_app_for_file_type">Brak aplikacji dla tego typu plików!</string>
     <string name="local_file_list_empty">Nie ma plików w tym folderze.</string>
+    <string name="file_list_empty_headline_search">Brak wyników w tym folderze</string>
+    <string name="file_list_empty_search">Spróbować szukać w innym folderze?</string>
     <string name="upload_list_empty_headline">Brak dostępnych danych do wysłania</string>
     <string name="upload_list_empty_text">Wyślij jakieś dane lub włącz wysyłanie natychmiastowe!</string>
     <string name="file_list_folder">folder</string>
@@ -234,7 +236,7 @@
 	<string name="auth_connecting_auth_server">Łączenie z serwerem poświadczeń...</string>
 	<string name="auth_unsupported_auth_method">Serwer nie obsługuje tej metody autoryzacji</string>
 	<string name="auth_unsupported_multiaccount">%1$s nie wspiera wielu kont</string>
-	<string name="auth_fail_get_user_name">Twój serwer nie zwraca prawidłowego id użytkownika, proszę skontaktuj się z administratorem
+	<string name="auth_fail_get_user_name">Twój serwer nie zwraca prawidłowego identyfikatora użytkownika, proszę skontaktuj się z administratorem
 	</string>
 	<string name="auth_can_not_auth_against_server">Błąd autoryzacji na tym serwerze</string>
     <string name="auth_account_does_not_exist">Konto jeszcze nie istnieje na tym urządzeniu.</string>
@@ -483,7 +485,7 @@
     <string name="edit_share_unshare">Cofnij udostępnianie</string>
     <string name="edit_share_done">zakończono</string>
 
-    <string name="action_retry_uploads">Wysłanie ponowne się nie udało</string>
+    <string name="action_retry_uploads">Wysyłanie ponowne się nie udało</string>
     <string name="action_clear_failed_uploads">Wyczyść nieudane</string>
     <string name="action_clear_successful_uploads">Wyczyść udane</string>
     <string name="action_clear_finished_uploads">Wyszyczść wszystkie zakończone</string>
@@ -529,7 +531,7 @@ lub</string>
     <string name="folder_sync_no_results">Nie znaleziono folderów multimedialnych.</string>
     <string name="folder_sync_preferences">Preferencje automatycznego przesyłania</string>
     <string name="folder_sync_settings">Ustawienia</string>
-    <string name="folder_sync_new_info">Natychmiastowe wysyłanie zostało kompletnie zmienione. Proszę sprawdzić główne menu i zrekonfigurować automatyczne wysyłanie. Przepraszamy za niedogodności.\\n\\nCiesz się z nowych i rozbudowanych możliwości automatycznego wysyłania!</string>
+    <string name="folder_sync_new_info">Natychmiastowe wysyłanie zostało kompletnie zmienione. Proszę sprawdzić główne menu i zrekonfigurować automatyczne wysyłanie. Przepraszamy za niedogodności.\n\nCiesz się z nowych i rozbudowanych możliwości automatycznego wysyłania!</string>
     <string name="folder_sync_preferences_folder_path">Dla %1$s</string>
     <plurals name="items_selected_count">
         <item quantity="one">%d zaznaczony</item>
