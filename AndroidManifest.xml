@@ -83,7 +83,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.ManageAccountsActivity" />
-        <activity android:name=".ui.activity.ParticipateActivity" />
+        <activity android:name=".ui.activity.ParticipateActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="claroDrive" android:host="participate.clarodrive.com" />
+            </intent-filter>
+
+        </activity>
         <activity android:name=".ui.activity.FolderSyncActivity" />
         <activity android:name=".ui.activity.UploadFilesActivity" />
         <activity android:name=".ui.activity.ReceiveExternalFilesActivity"
