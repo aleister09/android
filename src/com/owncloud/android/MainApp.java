@@ -38,6 +38,7 @@ import com.evernote.android.job.JobManager;
 import com.microsoft.azure.engagement.EngagementAgent;
 import com.microsoft.azure.engagement.EngagementAgentUtils;
 import com.microsoft.azure.engagement.EngagementConfiguration;
+import com.newrelic.agent.android.NewRelic;
 import com.owncloud.android.authentication.PassCodeManager;
 import com.owncloud.android.datamodel.SyncedFolder;
 import com.owncloud.android.datamodel.SyncedFolderProvider;
@@ -184,6 +185,10 @@ public class MainApp extends MultiDexApplication {
 
         EngagementAgent.getInstance(this).init(engagementConfiguration);
 
+        NewRelic.withApplicationToken(
+
+                "AAfee22e6735c64ee08f9546cd636f1f4ab1a513e3"
+        ).start(this);
 
 
     }
