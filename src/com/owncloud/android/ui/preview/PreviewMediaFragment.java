@@ -526,7 +526,7 @@ public class PreviewMediaFragment extends FileFragment implements
     @Override
     public void onStop() {
         Log_OC.v(TAG, "onStop");
-
+        stopAudio();
         mPrepared = false;
         if (mMediaServiceConnection != null) {
             Log_OC.d(TAG, "Unbinding from MediaService ...");

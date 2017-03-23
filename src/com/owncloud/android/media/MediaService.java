@@ -31,6 +31,7 @@ import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnErrorListener;
 import android.media.MediaPlayer.OnPreparedListener;
+import android.media.session.MediaSessionManager;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WifiManager.WifiLock;
 import android.os.IBinder;
@@ -90,7 +91,10 @@ public class MediaService extends Service implements OnCompletionListener, OnPre
     /** Reference to the system AudioManager */
     private AudioManager mAudioManager = null;
 
-    
+    /** Reference to AudioSessionManager */
+    private MediaSessionManager mManager;
+
+
     /** Values to indicate the state of the service */
     enum State {
         STOPPED,
@@ -233,6 +237,7 @@ public class MediaService extends Service implements OnCompletionListener, OnPre
         mNotificationBuilder = new NotificationCompat.Builder(this);
         mNotificationBuilder.setColor(this.getResources().getColor(R.color.primary));
         mAudioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+        mManager=(MediaSessionManager) getSystemService(Context.MEDIA_SESSION_SERVICE);
         mBinder = new MediaServiceBinder(this);
     }
 
@@ -506,6 +511,7 @@ public class MediaService extends Service implements OnCompletionListener, OnPre
             // somebody is still bound to the service
             player.seekTo(0);
             processPauseRequest();
+
             mMediaController.updatePausePlay();
         } else {
             // nobody is bound
@@ -558,6 +564,20 @@ public class MediaService extends Service implements OnCompletionListener, OnPre
         mNotificationBuilder.setTicker(ticker);
         mNotificationBuilder.setContentTitle(ticker);
         mNotificationBuilder.setContentText(content);
+
+
+        Intent i = new Intent(this, MediaService.class);
+        i.setAction(MediaService.ACTION_STOP_ALL);// new Intent(MediaService.ACTION_STOP_ALL);
+        PendingIntent pIntent = PendingIntent.getActivity(getApplicationContext(), (int) System.currentTimeMillis(), i,PendingIntent.FLAG_UPDATE_CURRENT);
+
+
+        mNotificationBuilder.addAction(android.R.drawable.ic_media_previous, "Previous", pIntent) // #0
+                .addAction(android.R.drawable.ic_media_pause, "Pause", pIntent)  // #1
+                .addAction(android.R.drawable.ic_media_next, "Next", pIntent)     // #2
+                // Apply the media style template
+                .setStyle(new NotificationCompat.MediaStyle()
+                        .setShowActionsInCompactView(1 /* #1: pause button */));
+
 
         mNotificationManager.notify(R.string.media_notif_ticker, mNotificationBuilder.build());
     }
