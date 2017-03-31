@@ -13,9 +13,6 @@
     <string name="actionbar_send_file">Senda</string>
     <string name="actionbar_sort">Raða</string>
     <string name="actionbar_sort_title">Raða sem</string>
-    <string name="menu_item_sort_by_name">A - Z</string>
-    <string name="menu_item_sort_by_date">Nýjast - Elst</string>
-    <string name="menu_item_sort_by_size">Stærst - Minnst</string>
     <string name="drawer_item_all_files">Allar skrár</string>
     <string name="drawer_item_on_device">á tækinu</string>
     <string name="drawer_item_settings">Stillingar</string>
@@ -314,7 +311,7 @@
     <string name="conflict_keep_both">Halda báðum</string>
     <string name="conflict_use_local_version">útgáfu á tölvu</string>
     <string name="conflict_use_server_version">útgáfu á þjóni</string>
-    
+
     <string name="preview_image_description">Forskoðun myndar</string>
     <string name="preview_image_error_unknown_format">Ekki er hægt að birta myndina</string>
 
@@ -509,8 +506,6 @@
     <string name="participate_testing_bug_text">Fannstu villu? Eitthvað er skrýtið?</string>
     <string name="participate_testing_report_text">Tilkynna um vandamál á Github</string>
     <string name="participate_testing_version_text">Hefurðu áhuga á að hjálpa okkur með næstu útgáfu?</string>
-    <string name="participate_beta_headline">Prufukeyra Beta-prófunarútgáfuna</string>
-    <string name="participate_beta_text">Þetta inniheldur alla væntanlega eiginleika og er alveg á jaðri framþróunarinnar. Villur geta komið í ljós, láttu okkur vita af þeim. &lt;br/>&lt;a href="%2$s">Sækja APK-pakkann&lt;/a> eða</string>
     <string name="participate_release_candidate_headline">Forútgáfa</string>
     <string name="participate_release_candidate_text">Útgáfukandídatinn (release candidate = RC) er skyndiútgáfa af væntanlegri útgáfu og er ætlað að vera nokkuð stöðug. Þú getur hjálpað til við að tryggja stöðugleikann með því að prófa þína eigin uppsetningu. Skráðu þig í prófanir í Play Store eða handvirkt með því að fara í \"útgáfur\"-hlutann í F-Droid.</string>
     <string name="participate_contribute_headline">Vertu virkur þáttakandi</string>
@@ -531,6 +526,7 @@
         <item quantity="one">%d valið</item>
         <item quantity="other">%d valið</item>
     </plurals>
+
     <string name="upload_file_dialog_title">Settu inn skráaheiti og skráagerð fyrir innsendingu</string>
     <string name="upload_file_dialog_filename">Skráarheiti</string>
     <string name="upload_file_dialog_filetype">Skráartegund</string>
@@ -556,4 +552,5 @@
     <string name="welcome_feature_3_text">Haltu ljósmyndunum þínum öruggum</string>
 
     <string name="whats_new_skip">Sleppa</string>
-</resources>
+
+    </resources>

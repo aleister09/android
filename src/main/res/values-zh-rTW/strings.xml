@@ -13,9 +13,6 @@
     <string name="actionbar_send_file">寄出</string>
     <string name="actionbar_sort">排序</string>
     <string name="actionbar_sort_title">排序依照</string>
-    <string name="menu_item_sort_by_name">A - Z</string>
-    <string name="menu_item_sort_by_date">最新 - 最舊</string>
-    <string name="menu_item_sort_by_size">最大 - 最小</string>
     <string name="drawer_item_all_files">所有檔案</string>
     <string name="drawer_item_on_device">在裝置上</string>
     <string name="drawer_item_settings">設定</string>
@@ -307,7 +304,7 @@
     <string name="conflict_keep_both">保留兩者</string>
     <string name="conflict_use_local_version">本地版本</string>
     <string name="conflict_use_server_version">伺服器版本</string>
-    
+
     <string name="preview_image_description">圖片預覽</string>
     <string name="preview_image_error_unknown_format">無法顯示圖片</string>
 
@@ -481,7 +478,6 @@
     <string name="participate_testing_bug_text">發現問題？</string>
     <string name="participate_testing_report_text">在 Github 上回報</string>
     <string name="participate_testing_version_text">有興趣幫我們測試下一個版本嗎？</string>
-    <string name="participate_beta_headline">測試 Beta 版</string>
     <string name="participate_release_candidate_headline">最終測試版</string>
     <string name="participate_release_candidate_text">最終測試版是新版本發行前的快照，應該相當穩定，您的測試將協助我們確保穩定性，在 Play 商店中註冊成為測試者，或是在 F-Droid 中尋找「版本」區塊</string>
     <string name="participate_contribute_headline">積極貢獻</string>
@@ -492,6 +488,7 @@
     <plurals name="items_selected_count">
         <item quantity="other">%d 已選</item>
     </plurals>
+
     <string name="storage_description_default">預設</string>
     <string name="storage_description_sd_no">SD 卡 %1$d</string>
     <string name="storage_description_unknown">未知</string>

@@ -13,9 +13,6 @@
     <string name="actionbar_send_file">Αποστολή</string>
     <string name="actionbar_sort">Ταξινόμηση</string>
     <string name="actionbar_sort_title">Ταξινόμηση κατά</string>
-    <string name="menu_item_sort_by_name">Α - Ω</string>
-    <string name="menu_item_sort_by_date">Νεότερο - Παλαιότερο</string>
-    <string name="menu_item_sort_by_size">Μεγαλύτερο - Μικρότερο</string>
     <string name="drawer_item_all_files">Όλα τα αρχεία</string>
     <string name="drawer_item_on_device">Στην συσκευή</string>
     <string name="drawer_item_settings">Ρυθμίσεις</string>
@@ -312,7 +309,7 @@
     <string name="conflict_keep_both">Διατήρηση και των δύο</string>
     <string name="conflict_use_local_version">τοπική έκδοση</string>
     <string name="conflict_use_server_version">έκδοση διακομιστή</string>
-    
+
     <string name="preview_image_description">Προεπισκόπηση εικόνας</string>
     <string name="preview_image_error_unknown_format">Αδυναμία εμφάνισης εικόνας</string>
 
@@ -507,7 +504,6 @@
     <string name="participate_testing_bug_text">Βρήκατε σφάλμα; Κάτι σας φαίνεται παράξενο;</string>
     <string name="participate_testing_report_text">Αναφέρετε σφάλμα στο Github</string>
     <string name="participate_testing_version_text">Σας ενδιαφέρει να μας βοηθήσετε να δοκιμάσουμε την επόμενη έκδοση;</string>
-    <string name="participate_beta_headline">Δοκιμάστε την έκδοση Beta</string>
     <string name="participate_release_candidate_headline">Υποψήφια κυκλοφορία</string>
     <string name="participate_release_candidate_text">Η υποψήφια κυκλοφορία (RC) είναι ένα στιγμιότυπο της επερχόμενης έκδοσης και αναμένεται να είναι σταθερό. Η δοκιμή της μεμονωμένης εγκατάστασής σας θα βοηθήσει στην εξασφάλιση αυτού. Εγγραφείτε για δοκιμές στο Play store ή χειροκίνητα αναζητείστε στο τμήμα \"εκδόσεις\" στο F-Droid.</string>
     <string name="participate_contribute_headline">Ενεργή συνεισφορά</string>
@@ -528,6 +524,7 @@
         <item quantity="one">%d επιλέχθηκε</item>
         <item quantity="other">%d επιλέχθηκαν</item>
     </plurals>
+
     <string name="upload_file_dialog_title">Εισαγωγή ονόματος και τύπου αρχείου μεταφόρτωσης</string>
     <string name="upload_file_dialog_filename">Όνομα αρχείου</string>
     <string name="upload_file_dialog_filetype">Τύπος αρχείου</string>
@@ -553,4 +550,5 @@
     <string name="welcome_feature_3_text">Διατήρηση των φωτογραφιών σας με ασφάλεια</string>
 
     <string name="whats_new_skip">Παράλειψη</string>
-</resources>
+
+    </resources>

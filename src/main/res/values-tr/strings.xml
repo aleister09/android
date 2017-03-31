@@ -13,9 +13,14 @@
     <string name="actionbar_send_file">Gönder</string>
     <string name="actionbar_sort">Sırala</string>
     <string name="actionbar_sort_title">Şuna göre sırala</string>
-    <string name="menu_item_sort_by_name">A - Z</string>
-    <string name="menu_item_sort_by_date">Yeniden Eskiye</string>
-    <string name="menu_item_sort_by_size">Büyükten Küçüğe</string>
+    <string name="sort_by">Sıralama</string>
+    <string name="menu_item_sort_by_name_a_z">A - Z</string>
+    <string name="menu_item_sort_by_name_z_a">Z - A</string>
+    <string name="menu_item_sort_by_date_newest_first">Yeniden - Eskiye</string>
+    <string name="menu_item_sort_by_date_oldest_first">Eskiden Yeniye</string>
+    <string name="menu_item_sort_by_size_biggest_first">Büyükten Küçüğe</string>
+    <string name="menu_item_sort_by_size_smallest_first">Küçükten Büyüğe</string>
+
     <string name="drawer_item_all_files">Tüm dosyalar</string>
     <string name="drawer_item_on_device">Aygıt üzerinde</string>
     <string name="drawer_item_settings">Ayarlar</string>
@@ -314,7 +319,8 @@
     <string name="conflict_keep_both">İkisini de sakla</string>
     <string name="conflict_use_local_version">yerel sürümü</string>
     <string name="conflict_use_server_version">sunucu sürümünü</string>
-    
+
+    <string name="preview_sorry">Bundan dolayı üzgünüz!</string>
     <string name="preview_image_description">Görsel önizleme</string>
     <string name="preview_image_error_unknown_format">Bu görsel görüntülenemiyor</string>
 
@@ -509,8 +515,8 @@
     <string name="participate_testing_bug_text">Bir hata mı buldunuz? Bir gariplik mi var?</string>
     <string name="participate_testing_report_text">Github üzerinden bir sorun bildirin</string>
     <string name="participate_testing_version_text">Gelecek sürümler için bize yardımcı olmak ister misiniz?</string>
-    <string name="participate_beta_headline">Beta sürümünü deneyin</string>
-    <string name="participate_beta_text">Bu sürümde tüm yeni özellikler bulunur ve çok taze olduğundan hata ve sorunlar olabilir. Bir hata ya da soruna rastlarsanız bize iletin. <br/>&lt;a href =\"%2$s\">APK dosyasını indirin&lt;/a> ya da</string>
+    <string name="participate_beta_headline">Gecelik sürümü deneyin</string>
+    <string name="participate_beta_text">Bu sürümde tüm yeni özellikler bulunur ve çok taze olduğundan hata ve sorunlar olabilir. Bir hata ya da soruna rastlarsanız bize iletin.</string>
     <string name="participate_release_candidate_headline">Yayın adayı</string>
     <string name="participate_release_candidate_text">Yayın adayı (Release Candidate, RC) yayınlanacak sürümün bir kopyasıdır ve kararlı olması beklenir. Kişisel olarak kullanmanız kararlı olduğundan emin olmamızı sağlar. Denemek için Play Store üzerinden kayıt olun ya da el ile F-Droid üzerindeki \"sürümlere\" bakın.</string>
     <string name="participate_contribute_headline">Etkin Katkıda Bulunun</string>
@@ -531,6 +537,7 @@
         <item quantity="one">%d seçili</item>
         <item quantity="other">%d seçili</item>
     </plurals>
+
     <string name="upload_file_dialog_title">Yüklenecek dosya adını ve dosya türünü belirtin</string>
     <string name="upload_file_dialog_filename">Dosya adı</string>
     <string name="upload_file_dialog_filetype">Dosya türü</string>
@@ -556,4 +563,15 @@
     <string name="welcome_feature_3_text">Fotoğraflarınızı koruyun</string>
 
     <string name="whats_new_skip">Atla</string>
-</resources>
+
+    <!-- User information -->
+    <string name="user_info_full_name">Tam ad</string>
+    <string name="user_info_email">E-posta</string>
+    <string name="user_info_phone">Telefon numarası</string>
+    <string name="user_info_address">Adres</string>
+    <string name="user_info_website">Web sitesi</string>
+    <string name="user_info_twitter">Twitter</string>
+
+    <string name="user_information_description">Kullanıcı bilgileri</string>
+
+    </resources>

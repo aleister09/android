@@ -13,9 +13,14 @@
     <string name="actionbar_send_file">Отправить</string>
     <string name="actionbar_sort">Сортировать</string>
     <string name="actionbar_sort_title">Сортировать по</string>
-    <string name="menu_item_sort_by_name">А - Я</string>
-    <string name="menu_item_sort_by_date">Новые - старые</string>
-    <string name="menu_item_sort_by_size">Размеру</string>
+    <string name="sort_by">Порядок сортировки</string>
+    <string name="menu_item_sort_by_name_a_z">А–Я</string>
+    <string name="menu_item_sort_by_name_z_a">Я–A</string>
+    <string name="menu_item_sort_by_date_newest_first">Новые–старые</string>
+    <string name="menu_item_sort_by_date_oldest_first">Старые–новые</string>
+    <string name="menu_item_sort_by_size_biggest_first">Большие–маленькие</string>
+    <string name="menu_item_sort_by_size_smallest_first">Маленькие–большие</string>
+
     <string name="drawer_item_all_files">Все файлы</string>
     <string name="drawer_item_on_device">На устройстве</string>
     <string name="drawer_item_settings">Настройки</string>
@@ -85,7 +90,7 @@
     <string name="file_list_loading">Загрузка&#8230;</string>
     <string name="file_list_no_app_for_file_type">Приложение для этого типа файла не найдено!</string>
     <string name="local_file_list_empty">В этом каталоге нет файлов.</string>
-    <string name="file_list_empty_headline_search">В этом катадлоге результатов не найдено</string>
+    <string name="file_list_empty_headline_search">В этой папке результатов не найдено</string>
     <string name="file_list_empty_search">Искать в другом каталоге?</string>
     <string name="upload_list_empty_headline">Нет доступных загрузок</string>
     <string name="upload_list_empty_text">Загрузите что-нибудь или включите автоматическую загрузку!</string>
@@ -316,7 +321,8 @@
     <string name="conflict_keep_both">Сохранить оба</string>
     <string name="conflict_use_local_version">локальная версия</string>
     <string name="conflict_use_server_version">версия сервера</string>
-    
+
+    <string name="preview_sorry">Приносим извинения.</string>
     <string name="preview_image_description">Предпросмотр</string>
     <string name="preview_image_error_unknown_format">Это изображение не может быть отображено</string>
 
@@ -511,8 +517,8 @@
     <string name="participate_testing_bug_text">Нашли ошибку? Заметили необычное поведение программы?</string>
     <string name="participate_testing_report_text">Сообщить о проблеме на Github</string>
     <string name="participate_testing_version_text">Вам интересно участие в тестировании следующих версий?</string>
-    <string name="participate_beta_headline">Тестирование бета-версии</string>
-    <string name="participate_beta_text">Эта версия включает грядущие улучшения, но в ней могут встречаться ошибки. Если что-то работает неправильно, сообщите нам об этом. &lt;br/>&lt;a href="%2$s">Скачать APK&lt;/a> или</string>
+    <string name="participate_beta_headline">Протестируйте \"ночную\" версию</string>
+    <string name="participate_beta_text">Она включает в себя все готовящиеся возможности с самой передовой. Могут появляться баги, в таком случае, напишите о них нам</string>
     <string name="participate_release_candidate_headline">Кандидат в релизы</string>
     <string name="participate_release_candidate_text">Релиз-кандидат (RC) - это текущее состояние готовящегося выпуска, и, ожидается, что он будет стабильным. Проверка с вашими индивидуальными настройками может помочь убедится в этом. Зарегистрируйтесь для тестирования в Google Play или используйте раздел \"версии\" в каталоге приложений F-Droid.</string>
     <string name="participate_contribute_headline">Активное участие</string>
@@ -535,6 +541,7 @@
         <item quantity="many">%d выбрано</item>
         <item quantity="other">%d выбрано</item>
     </plurals>
+
     <string name="upload_file_dialog_title">Ввод имени и типа загружаемого файла </string>
     <string name="upload_file_dialog_filename">Имя файла</string>
     <string name="upload_file_dialog_filetype">Тип файла</string>
@@ -560,4 +567,15 @@
     <string name="welcome_feature_3_text">Держите ваши фотографии в безопасности</string>
 
     <string name="whats_new_skip">Пропустить</string>
-</resources>
+
+    <!-- User information -->
+    <string name="user_info_full_name">Полное имя</string>
+    <string name="user_info_email">Эл. почта</string>
+    <string name="user_info_phone">Номер телефона</string>
+    <string name="user_info_address">Адрес</string>
+    <string name="user_info_website">Сайт</string>
+    <string name="user_info_twitter">Twitter</string>
+
+    <string name="user_information_description">Пользовательская информация</string>
+
+    </resources>

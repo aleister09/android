@@ -13,9 +13,6 @@
     <string name="actionbar_send_file">Изпращане</string>
     <string name="actionbar_sort">Сортирай</string>
     <string name="actionbar_sort_title">Сортиране по</string>
-    <string name="menu_item_sort_by_name">А - Я</string>
-    <string name="menu_item_sort_by_date">Нови - Стари</string>
-    <string name="menu_item_sort_by_size">Големи - Малки</string>
     <string name="drawer_item_all_files">Всички файлове</string>
     <string name="drawer_item_on_device">На устройството</string>
     <string name="drawer_item_settings">Настройки</string>
@@ -307,7 +304,7 @@
     <string name="conflict_keep_both">Запазване и на двата</string>
     <string name="conflict_use_local_version">локалната версия</string>
     <string name="conflict_use_server_version">версията на сървъра</string>
-    
+
     <string name="preview_image_description">Преглед на изображението</string>
     <string name="preview_image_error_unknown_format">Изображението не може да бъде показано</string>
 
@@ -502,7 +499,6 @@
     <string name="participate_testing_bug_text">Открили сте грешка? Нещо е странно?</string>
     <string name="participate_testing_report_text">Докладвайте за проблем чрез Github</string>
     <string name="participate_testing_version_text">Заинтересован сте от възможността да тествате следващата версия?</string>
-    <string name="participate_beta_headline">Тестване на бета версия</string>
     <string name="participate_contribute_irc_text">Присъединете се към IRC чата: &lt;a href=\"%1$s\">#nextcloud-mobile&lt;/a></string>
     <string name="participate_contribute_forum_text">Помогнете на други във &lt;a href="%1$s">форума&lt;/a></string>
     <string name="participate_contribute_translate_text">&lt;a href="%1$s">Преведете&lt;/a> приложението</string>
@@ -518,6 +514,7 @@
         <item quantity="one">%d избран</item>
         <item quantity="other">%d избрани</item>
     </plurals>
+
     <string name="upload_file_dialog_filename">Име на файла</string>
     <string name="upload_file_dialog_filetype">Тип на файла</string>
     <string name="storage_description_default">По подразбиране</string>
@@ -537,4 +534,5 @@
     <string name="welcome_feature_3_text">Съхранявайте вашите снимки безопасно</string>
 
     <string name="whats_new_skip">Пропусни</string>
-</resources>
+
+    </resources>
