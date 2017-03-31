@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="?android:attr/activatedBackgroundIndicator"
+    android:minWidth="@dimen/activity_row_layout_min_width_independent"
+    android:orientation="vertical"
+    android:paddingEnd="@dimen/standard_padding_independent"
+    android:paddingLeft="@dimen/standard_padding_independent"
+    android:paddingRight="@dimen/standard_padding_independent"
+    android:paddingStart="@dimen/standard_padding_independent">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:duplicateParentState="true">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/user_icon_size_independent"
+            android:layout_height="@dimen/user_icon_size_independent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/standard_half_padding_independent"
+            android:layout_marginRight="@dimen/standard_half_padding_independent"
+            android:duplicateParentState="true" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:duplicateParentState="true"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:maxLines="1"
+            android:textAppearance="?android:attr/textAppearanceLargePopupMenu" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
