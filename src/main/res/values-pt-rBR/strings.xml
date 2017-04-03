@@ -13,9 +13,6 @@
     <string name="actionbar_send_file">Enviar</string>
     <string name="actionbar_sort">Classificar</string>
     <string name="actionbar_sort_title">Classificar por</string>
-    <string name="menu_item_sort_by_name">A - Z</string>
-    <string name="menu_item_sort_by_date">Mais novo - Mais antigo</string>
-    <string name="menu_item_sort_by_size">Maior - Menor</string>
     <string name="drawer_item_all_files">Todos os arquivos</string>
     <string name="drawer_item_on_device">No aparelho</string>
     <string name="drawer_item_settings">Configurações</string>
@@ -314,7 +311,7 @@
     <string name="conflict_keep_both">Manter ambos</string>
     <string name="conflict_use_local_version">versão local</string>
     <string name="conflict_use_server_version">versão do servidor</string>
-    
+
     <string name="preview_image_description">Pré-visualização da imagem</string>
     <string name="preview_image_error_unknown_format">Esta imagem não pode ser mostrada</string>
 
@@ -510,10 +507,8 @@ Contacte o administrador</string>
     <string name="participate_testing_bug_text">Encontrou um erro? Algo está estranho?</string>
     <string name="participate_testing_report_text">Relate o problema no Github</string>
     <string name="participate_testing_version_text">Está interessado em ajudar-nos a testar a próxima versão?</string>
-    <string name="participate_beta_headline">Testar a versão beta</string>
-    <string name="participate_beta_text">Isso inclui todos os próximos recursos e é um recurso muitíssimo novo. Bugs/erros podem ocorrer e se ocorrerem, por favor informe-nos. &lt;br/>&lt;a href=\"%2$s\">Faça o download do APK&lt;/a> ou</string>
     <string name="participate_release_candidate_headline">Release candidate</string>
-    <string name="participate_release_candidate_text">O release candidate (RC) é um instantâneo do lançamento e espera-se que seja estável. Testar a sua configuração individual pode contribuir para assegurar-la. Registe-se para testar na Play Store ou procurar manualmente na seção \"versões\" na F-Droid.</string>
+    <string name="participate_release_candidate_text">O release candidate (RC) é um instantâneo do lançamento e espera-se que seja estável. Testar a sua configuração individual pode ajudar a garantir isso. Registre-se para testar na Play Store ou procure manualmente na seção \"versões\" na F-Droid.</string>
     <string name="participate_contribute_headline">Contribuir ativamente</string>
     <string name="participate_contribute_irc_text">Participe de uma conversa no IRC: &lt;a href="%1$s">#nextcloud-mobile&lt;/a></string>
     <string name="participate_contribute_forum_text">Ajude outros no &lt;a href="%1$s">forum&lt;/a></string>
@@ -532,6 +527,7 @@ Contacte o administrador</string>
         <item quantity="one">%d selecionado</item>
         <item quantity="other">%d selecionados</item>
     </plurals>
+
     <string name="upload_file_dialog_title">Forneça o nome e o tipo de arquivo que será enviado </string>
     <string name="upload_file_dialog_filename">Nome do Arquivo</string>
     <string name="upload_file_dialog_filetype">Tipo do Arquivo</string>
@@ -557,4 +553,5 @@ Contacte o administrador</string>
     <string name="welcome_feature_3_text">Guarde suas fotos de forma segura</string>
 
     <string name="whats_new_skip">Pular</string>
-</resources>
+
+    </resources>

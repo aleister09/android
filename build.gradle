@@ -23,6 +23,11 @@ apply plugin: 'checkstyle'
 apply plugin: 'pmd'
 apply plugin: 'findbugs'
 
+configurations.all {
+    // check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
 ext {
     supportLibraryVersion = '25.0.0'
 
@@ -30,6 +35,11 @@ ext {
 
     // allows for -Dpre-dex=false to be set
     preDexEnabled = "true".equals(System.getProperty("pre-dex", "true"))
+}
+
+configurations.all {
+    // Check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
 
 repositories {
@@ -53,7 +63,7 @@ android {
         javaMaxHeapSize "4g"
     }
 
-    compileSdkVersion 24
+    compileSdkVersion 25
     buildToolsVersion '25.0.0'
 
     defaultConfig {
@@ -168,17 +178,26 @@ dependencies {
     compile name: 'touch-image-view'
     compile 'com.android.support:multidex:1.0.1'
 
-    compile 'com.github.nextcloud:android-library:1.0.11'
+    compile 'com.github.nextcloud:android-library:1.0.14'
     compile "com.android.support:support-v4:${supportLibraryVersion}"
     compile "com.android.support:design:${supportLibraryVersion}"
     compile 'com.jakewharton:disklrucache:2.0.2'
     compile "com.android.support:appcompat-v7:${supportLibraryVersion}"
+    compile "com.android.support:cardview-v7:${supportLibraryVersion}"
     compile 'com.getbase:floatingactionbutton:1.10.1'
     compile 'com.google.code.findbugs:annotations:2.0.1'
     compile group: 'commons-io', name: 'commons-io', version: '2.4'
     compile 'com.google.android.gms:play-services:10.2.0'
-    compile 'com.github.evernote:android-job:v1.1.7'
+    compile 'com.github.evernote:android-job:v1.1.8'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
 
+    compile 'org.parceler:parceler-api:1.1.6'
+    annotationProcessor 'org.parceler:parceler:1.1.6'
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.caverock:androidsvg:1.2.1'
     /// dependencies for local unit tests
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.10.19'
@@ -191,7 +210,7 @@ dependencies {
     androidTestCompile 'com.android.support.test:runner:0.5'
 
     // Android Annotation Support
-    androidTestCompile "com.android.support:support-annotations:25.0.0"
+    androidTestCompile "com.android.support:support-annotations:${supportLibraryVersion}"
 
     // Espresso core
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
