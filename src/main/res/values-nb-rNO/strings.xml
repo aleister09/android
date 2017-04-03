@@ -13,9 +13,6 @@
     <string name="actionbar_send_file">Send</string>
     <string name="actionbar_sort">Sorter</string>
     <string name="actionbar_sort_title">Sorter etter</string>
-    <string name="menu_item_sort_by_name">A - Z</string>
-    <string name="menu_item_sort_by_date">Nyest - Eldst</string>
-    <string name="menu_item_sort_by_size">Størst - Minst</string>
     <string name="drawer_item_all_files">Alle filer</string>
     <string name="drawer_item_on_device">På enheten</string>
     <string name="drawer_item_settings">Innstillinger</string>
@@ -83,6 +80,8 @@
     <string name="file_list_loading">Laster&#8230;</string>
     <string name="file_list_no_app_for_file_type">Ingen applikasjon funnet for filtypen!</string>
     <string name="local_file_list_empty">Det er ingen filer i denne mappen.</string>
+    <string name="file_list_empty_headline_search">Ingen resultater i denne mappen</string>
+    <string name="file_list_empty_search">Vil du prøve i en annen mappe?</string>
     <string name="upload_list_empty_headline">Ingen opplastinger tilgjengelig</string>
     <string name="upload_list_empty_text">Last opp innhold eller aktiver umiddelbar opplasting.</string>
     <string name="file_list_folder">mappe</string>
@@ -312,7 +311,7 @@
     <string name="conflict_keep_both">Behold begge</string>
     <string name="conflict_use_local_version">lokal versjon</string>
     <string name="conflict_use_server_version">tjenerversjon</string>
-    
+
     <string name="preview_image_description">Bildeforhåndsvisning</string>
     <string name="preview_image_error_unknown_format">Dette bildet kan ikke vises</string>
 
@@ -507,8 +506,6 @@
     <string name="participate_testing_bug_text">Funnet en feil? Føles noe rart?</string>
     <string name="participate_testing_report_text">Meld en feil på Github</string>
     <string name="participate_testing_version_text">Er du interessert i å hjelpe oss å teste ned neste versjonen?</string>
-    <string name="participate_beta_headline">Test betaversjonen</string>
-    <string name="participate_beta_text">Dette inkludere alle kommende funksjoner og er helt på kanten. Feil/Feilmeldinger kan oppstå og hvis de gjør, vennligst meld de til oss. &lt;br/>&lt;a href="%2$s">Last ned APK&lt;/a> eller</string>
     <string name="participate_release_candidate_headline">Release candidate</string>
     <string name="participate_release_candidate_text">Release candidate (RC) er en pakke av den kommende utgaven og er forventet å være stabil. Ved å teste denne med ditt oppsett vil kunne hjelpe oss å sikre dette. Meld deg på for testen i Play butikken eller se i versjonsseksjonen i F-Droid.</string>
     <string name="participate_contribute_headline">Bidra aktivt</string>
@@ -529,6 +526,7 @@
         <item quantity="one">%d valgt</item>
         <item quantity="other">%d valgte</item>
     </plurals>
+
     <string name="upload_file_dialog_title">Legg inn filnavn og -type for opplasting</string>
     <string name="upload_file_dialog_filename">Filnavn</string>
     <string name="upload_file_dialog_filetype">Filtype</string>
@@ -554,4 +552,5 @@
     <string name="welcome_feature_3_text">Hold bildene dine trygge</string>
 
     <string name="whats_new_skip">Hopp over</string>
-</resources>
+
+    </resources>
