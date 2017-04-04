@@ -33,6 +33,7 @@ import android.os.IBinder;
 import android.support.multidex.MultiDexApplication;
 import android.support.v4.util.Pair;
 
+import com.crashlytics.android.Crashlytics;
 import com.evernote.android.job.JobManager;
 import com.owncloud.android.authentication.PassCodeManager;
 import com.owncloud.android.datamodel.SyncedFolder;
@@ -47,6 +48,7 @@ import com.owncloud.android.services.observer.SyncedFolderObserverService;
 import com.owncloud.android.ui.activity.Preferences;
 import com.owncloud.android.ui.activity.WhatsNewActivity;
 
+import io.fabric.sdk.android.Fabric;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -86,6 +88,7 @@ public class MainApp extends MultiDexApplication {
     @SuppressFBWarnings("ST")
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         JobManager.create(this).addJobCreator(new NCJobCreator());
         MainApp.mContext = getApplicationContext();
 
