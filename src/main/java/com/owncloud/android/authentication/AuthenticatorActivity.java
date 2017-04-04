@@ -1744,6 +1744,9 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity
             if (!webViewLoginMethod) {
                 updateAuthStatusIconAndText(result);
                 showAuthStatus();
+            }else{
+                setResult(RESULT_OK);
+                return true;
             }
             Log_OC.d(TAG, result.getLogMessage());
             return false;
