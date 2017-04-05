@@ -74,6 +74,9 @@ import android.view.View.OnTouchListener;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.HttpAuthHandler;
 import android.webkit.SslErrorHandler;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
@@ -175,6 +178,8 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity
     public static final String REGULAR_SERVER_INPUT_TYPE = "regular";
     public static final String SUBDOMAIN_SERVER_INPUT_TYPE = "prefix";
     public static final String DIRECTORY_SERVER_INPUT_TYPE = "suffix";
+
+    public static final String ERROR_WEB_PAGE = "file:///android_asset/error_web_page.html";
 
     /// parameters from EXTRAs in starter Intent
     private byte mAction;
@@ -335,6 +340,17 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity
                     return true;
                 }
                 return false;
+            }
+
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                mLoginWebView.loadUrl(ERROR_WEB_PAGE);
+            }
+
+            @Override
+            public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
+                mLoginWebView.loadUrl(ERROR_WEB_PAGE);
+                super.onReceivedHttpError(view, request, errorResponse);
             }
         });
     }
