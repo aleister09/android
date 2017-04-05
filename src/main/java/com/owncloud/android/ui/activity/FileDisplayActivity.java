@@ -1792,6 +1792,7 @@ public class FileDisplayActivity extends HookActivity
                                 long currentSyncTime = System.currentTimeMillis();
                                 mSyncInProgress = true;
 
+
                                 // perform folder synchronization
                                 RemoteOperation synchFolderOp = new RefreshFolderOperation(folder,
                                         currentSyncTime,
@@ -1809,6 +1810,8 @@ public class FileDisplayActivity extends HookActivity
                                         null,
                                         null
                                 );
+
+
 
                                 setIndeterminate(true);
 

@@ -32,6 +32,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -49,7 +50,12 @@ import com.owncloud.android.lib.common.operations.RemoteOperation;
 import com.owncloud.android.lib.common.operations.RemoteOperationResult;
 import com.owncloud.android.lib.common.utils.Log_OC;
 import com.owncloud.android.lib.resources.activities.GetRemoteActivitiesOperation;
+import com.owncloud.android.lib.resources.files.SearchOperation;
 import com.owncloud.android.ui.adapter.ActivityListAdapter;
+import com.owncloud.android.ui.events.ChangeMenuEvent;
+import com.owncloud.android.ui.events.SearchEvent;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -270,6 +276,47 @@ public class ActivitiesListActivity extends FileActivity {
         }
 
         return retval;
+    }
+
+    @Override
+    protected void selectNavigationItem(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.nav_favorites:
+                menuItem.setChecked(true);
+                mCheckedMenuItem = menuItem.getItemId();
+
+                showFiles(false);
+                EventBus.getDefault().post(new ChangeMenuEvent());
+                getHandler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        EventBus.getDefault().post(new SearchEvent("", SearchOperation.SearchType.FAVORITE_SEARCH,
+                                SearchEvent.UnsetType.NO_UNSET));
+                    }
+                },2000);
+                break;
+            case R.id.nav_photos:
+                menuItem.setChecked(true);
+                mCheckedMenuItem = menuItem.getItemId();
+                showFiles(false);
+                EventBus.getDefault().post(new ChangeMenuEvent());
+                getHandler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        EventBus.getDefault().post(new SearchEvent("image/%",
+                                SearchOperation.SearchType.CONTENT_TYPE_SEARCH, SearchEvent.UnsetType.NO_UNSET));
+                    }
+                },2000);
+
+                break;
+
+            default:
+                super.selectNavigationItem(menuItem);
+        }
+
+
+
+
     }
 
     private void setLoadingMessage() {

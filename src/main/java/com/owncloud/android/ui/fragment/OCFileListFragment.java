@@ -1245,6 +1245,7 @@ public class OCFileListFragment extends ExtendedListFragment implements OCFileLi
 
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onMessageEvent(SearchEvent event) {
+
         setEmptyListLoadingMessage();
         mAdapter.setData(new ArrayList<>(), SearchType.NO_SEARCH);
 

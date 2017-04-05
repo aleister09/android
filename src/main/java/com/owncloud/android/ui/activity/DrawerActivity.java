@@ -131,7 +131,7 @@ public abstract class DrawerActivity extends ToolbarActivity implements DisplayU
     /**
      * Id of the checked menu item.
      */
-    private int mCheckedMenuItem = Menu.NONE;
+    protected int mCheckedMenuItem = Menu.NONE;
 
     /**
      * accounts for the (max) three displayed accounts in the drawer header.
@@ -370,7 +370,7 @@ public abstract class DrawerActivity extends ToolbarActivity implements DisplayU
     }
 
 
-    private void selectNavigationItem(final MenuItem menuItem) {
+    protected void selectNavigationItem(final MenuItem menuItem) {
 
         switch (menuItem.getItemId()) {
             case R.id.nav_all_files:
