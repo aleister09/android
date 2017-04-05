@@ -342,14 +342,12 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity
                 return false;
             }
 
-            @Override
-            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                mLoginWebView.loadUrl(ERROR_WEB_PAGE);
-            }
 
             @Override
             public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
-                mLoginWebView.loadUrl(ERROR_WEB_PAGE);
+                if(request.getUrl().toString().contentEquals(getString(R.string.webview_login_url))) {
+                    mLoginWebView.loadUrl(ERROR_WEB_PAGE);
+                }
                 super.onReceivedHttpError(view, request, errorResponse);
             }
         });
