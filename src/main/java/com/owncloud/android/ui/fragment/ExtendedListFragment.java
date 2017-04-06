@@ -378,10 +378,10 @@ public class ExtendedListFragment extends Fragment
         mListView.setEmptyView(mRefreshEmptyLayout);
         mGridView.setEmptyView(mRefreshEmptyLayout);
 
-        mFabMain = (FloatingActionsMenu) v.findViewById(R.id.fab_main);
-        mFabUpload = (FloatingActionButton) v.findViewById(R.id.fab_upload);
-        mFabMkdir = (FloatingActionButton) v.findViewById(R.id.fab_mkdir);
-        mFabUploadFromApp = (FloatingActionButton) v.findViewById(R.id.fab_upload_from_app);
+        mFabMain = (FloatingActionsMenu) getActivity().findViewById(R.id.fab_main);
+        mFabUpload = (FloatingActionButton) getActivity().findViewById(R.id.fab_upload);
+        mFabMkdir = (FloatingActionButton) getActivity().findViewById(R.id.fab_mkdir);
+        mFabUploadFromApp = (FloatingActionButton) getActivity().findViewById(R.id.fab_upload_from_app);
 
         boolean searchSupported = AccountUtils.hasSearchSupport(AccountUtils.
                 getCurrentOwnCloudAccount(MainApp.getAppContext()));
@@ -592,10 +592,12 @@ public class ExtendedListFragment extends Fragment
      * @param enabled Desired visibility for the FAB.
      */
     public void setFabEnabled(boolean enabled) {
-        if (enabled) {
-            mFabMain.setVisibility(View.VISIBLE);
-        } else {
-            mFabMain.setVisibility(View.GONE);
+        if(mFabMain!=null) {
+            if (enabled) {
+                mFabMain.setVisibility(View.VISIBLE);
+            } else {
+                mFabMain.setVisibility(View.GONE);
+            }
         }
     }
 

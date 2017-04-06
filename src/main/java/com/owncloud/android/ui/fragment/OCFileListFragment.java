@@ -213,7 +213,7 @@ public class OCFileListFragment extends ExtendedListFragment implements OCFileLi
 
         if (!getResources().getBoolean(R.bool.bottom_toolbar_enabled) || savedInstanceState != null) {
 
-            final View fabView = v.findViewById(R.id.fab_main);
+            final View fabView = getActivity().findViewById(R.id.fab_main);
             final RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)
                     fabView.getLayoutParams();
             layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, 1);
