@@ -54,6 +54,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.owncloud.android.R;
 import com.owncloud.android.datamodel.OCFile;
 import com.owncloud.android.files.FileMenuFilter;
@@ -99,6 +101,11 @@ public class PreviewMediaFragment extends FileFragment implements
     protected TextView mMultiListHeadline;
     protected ImageView mMultiListIcon;
     protected ProgressBar mMultiListProgress;
+
+    private FloatingActionsMenu mFabMain;
+    private FloatingActionButton mFabUpload;
+    private FloatingActionButton mFabMkdir;
+    private FloatingActionButton mFabUploadFromApp;
 
     private MediaServiceBinder mMediaServiceBinder = null;
     private MediaControlView mMediaController = null;
@@ -178,6 +185,13 @@ public class PreviewMediaFragment extends FileFragment implements
         mMediaController = (MediaControlView) mView.findViewById(R.id.media_controller);
         mMultiView = (RelativeLayout) mView.findViewById(R.id.multi_view);
 
+        mFabMain = (FloatingActionsMenu) getActivity().findViewById(R.id.fab_main);
+        mFabUpload = (FloatingActionButton) getActivity().findViewById(R.id.fab_upload);
+        mFabMkdir = (FloatingActionButton) getActivity().findViewById(R.id.fab_mkdir);
+        mFabUploadFromApp = (FloatingActionButton) getActivity().findViewById(R.id.fab_upload_from_app);
+
+        setFabEnabled(false);
+
         setupMultiView(mView);
         setMultiListLoadingMessage();
         return mView;
@@ -213,6 +227,22 @@ public class PreviewMediaFragment extends FileFragment implements
         }
     }
 
+    /**
+     * Sets the 'visibility' state of the FAB contained in the fragment.
+     *
+     * When 'false' is set, FAB visibility is set to View.GONE programmatically,
+     *
+     * @param enabled Desired visibility for the FAB.
+     */
+    public void setFabEnabled(boolean enabled) {
+        if(mFabMain!=null) {
+            if (enabled) {
+                mFabMain.setVisibility(View.VISIBLE);
+            } else {
+                mFabMain.setVisibility(View.GONE);
+            }
+        }
+    }
 
     /**
      * {@inheritDoc}
@@ -570,6 +600,7 @@ public class PreviewMediaFragment extends FileFragment implements
     @Override
     public void onDestroy() {
         Log_OC.v(TAG, "onDestroy");
+        setFabEnabled(true);
         super.onDestroy();
     }
 

@@ -21,6 +21,7 @@ package com.owncloud.android.ui.preview;
 
 import java.lang.ref.WeakReference;
 
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.owncloud.android.R;
 import com.owncloud.android.datamodel.OCFile;
 import com.owncloud.android.ui.fragment.FileFragment;
@@ -59,11 +60,14 @@ public class FileDownloadFragment extends FileFragment implements OnClickListene
 
     public ProgressListener mProgressListener;
     private boolean mListening;
+    private FloatingActionsMenu mFabMain;
 
     private static final String TAG = FileDownloadFragment.class.getSimpleName();
 
     private boolean mIgnoreFirstSavedState;
     private boolean mError;
+
+
 
 
     /**
@@ -142,6 +146,9 @@ public class FileDownloadFragment extends FileFragment implements OnClickListene
         DisplayUtils.colorPreLollipopHorizontalProgressBar(progressBar);
         mProgressListener = new ProgressListener(progressBar);
 
+        mFabMain = (FloatingActionsMenu) getActivity().findViewById(R.id.fab_main);
+        setFabEnabled(false);
+
         (mView.findViewById(R.id.cancelBtn)).setOnClickListener(this);
         
         (mView.findViewById(R.id.fileDownloadLL)).setOnClickListener(new OnClickListener() {
@@ -161,6 +168,23 @@ public class FileDownloadFragment extends FileFragment implements OnClickListene
         return mView;
     }
 
+
+    /**
+     * Sets the 'visibility' state of the FAB contained in the fragment.
+     *
+     * When 'false' is set, FAB visibility is set to View.GONE programmatically,
+     *
+     * @param enabled Desired visibility for the FAB.
+     */
+    public void setFabEnabled(boolean enabled) {
+        if(mFabMain!=null) {
+            if (enabled) {
+                mFabMain.setVisibility(View.VISIBLE);
+            } else {
+                mFabMain.setVisibility(View.GONE);
+            }
+        }
+    }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
