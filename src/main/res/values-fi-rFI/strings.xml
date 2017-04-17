@@ -331,8 +331,6 @@
 
     <string name="preview_sorry">Anteeksi tästä!</string>
     <string name="preview_image_description">Kuvan esikatselu</string>
-    <string name="preview_image_error_unknown_format">Tätä kuvaa ei voi näyttää</string>
-
     <string name="prefs_instant_upload_path_title">Välitön lähetys kansio</string>
     <string name="prefs_folder_sync_local_path_title">Paikallinen kansio</string>
     <string name="prefs_folder_sync_remote_path_title">Etäkansio</string>
@@ -389,7 +387,7 @@
     <string name="file_migration_failed_while_coping">VIRHE: Peilauksen aikana</string>
     <string name="file_migration_failed_while_updating_index">VIRHE: Indeksin päivityksen aikana</string>
 
-    <string name="file_migration_directory_already_exists">Data kansio on jo olemassa, mitä haluat tehdä?</string>
+    <string name="file_migration_directory_already_exists">Data-kansio on jo olemassa, mitä haluat tehdä?</string>
     <string name="file_migration_override_data_folder">Ylikirjoita</string>
     <string name="file_migration_use_data_folder">Käytä olemassa olevaa</string>
 

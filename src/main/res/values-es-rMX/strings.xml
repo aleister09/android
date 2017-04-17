@@ -22,9 +22,18 @@
     <string name="menu_item_sort_by_size_smallest_first">Más pequeño primero</string>
 
     <string name="drawer_item_all_files">Todos los archivos</string>
+    <string name="drawer_item_files">Archivos</string>
+    <string name="drawer_item_home">Inicio</string>
+    <string name="drawer_item_favorites">Favoritos</string>
+    <string name="drawer_item_photos">Fotos</string>
     <string name="drawer_item_on_device">En el dispositivo</string>
+    <string name="drawer_item_recently_added">Agregado recientemente</string>
+    <string name="drawer_item_recently_modified">Modificado recientemente</string>
+    <string name="drawer_item_shared">Compartido</string>
+    <string name="drawer_item_videos">Videos</string>
     <string name="drawer_item_settings">Ajustes</string>
     <string name="drawer_item_uploads_list">Cargas</string>
+    <string name="drawer_item_activities">Actividades</string>
     <string name="drawer_quota">%1$s de %2$s usados</string>
 	<string name="drawer_close">Cerrar</string>
     <string name="drawer_open">Abrir</string>
@@ -52,8 +61,8 @@
     <string name="prefs_recommend">Recomendar a un amigo</string>
     <string name="prefs_feedback">Retroalimentación</string>
     <string name="prefs_imprint">Imprint</string>
-    <string name="prefs_remember_last_share_location">Recordar la ubicación compartida</string>
-    <string name="prefs_remember_last_upload_location_summary">Recordar la última ubicación del recurso compartido cargado.</string>
+    <string name="prefs_remember_last_share_location">Recordar la ubicación del elemento compartido</string>
+    <string name="prefs_remember_last_upload_location_summary">Recordar la última ubicación del elemento compartido cargado.</string>
 
 	<string name="recommend_subject">Prueba  %1$s en tu teléfono inteligente!</string>
 	<string name="recommend_text">¡Quisiera invitarlo a usar %1$s en su teléfono inteligente!\\nDescargue aquí: %2$s</string>
@@ -85,15 +94,32 @@
     <string name="file_list_seconds_ago">hace algunos segundos</string>
     <string name="file_list_empty_headline">No hay archivos aquí</string>
     <string name="file_list_empty">¡Cargue algún contenido o sincronice con sus dispositivos!</string>
-    <string name="file_list_empty_favorites_filter_list">Los archivos y carpetas marcados como favoritos se mostrarán aquí</string>
+    <string name="file_list_empty_favorites">¡Marque algunos archivos como favoritos o sincronice con sus dispositivos!</string>
+    <string name="file_list_empty_favorites_filter_list">Los archivos y carpetas que marque como favoritos se mostrarán aquí</string>
     <string name="file_list_empty_favorites_filter">¡No se encontraron archivos marcados como favoritos en su consulta!</string>
     <string name="file_list_loading">Cargando&#8230;</string>
     <string name="file_list_no_app_for_file_type">¡No se encontró una aplicación para este tipo de archivo!</string>
     <string name="local_file_list_empty">No hay archivos en esta carpeta</string>
     <string name="file_list_empty_headline_search">No hay resultados en esta carpeta</string>
+    <string name="file_list_empty_headline_server_search">No hay resultados</string>
+    <string name="file_list_empty_favorite_headline">No hay favoritos</string>
+    <string name="file_list_empty_shared_headline">Aún no hay nada compartido</string>
+    <string name="file_list_empty_shared">Los archivos y carpetas que comparta se mostrarán aquí. </string>
+    <string name="file_list_empty_headline_server_search_videos">No hay videos</string>
+    <string name="file_list_empty_headline_server_search_photos">No hay fotos</string>
     <string name="file_list_empty_search">¿Intentó buscar en otra carpeta?</string>
+    <string name="file_list_empty_recently_modified">No se encontraron archivos que hayan sido modificado en los últimos 7 días</string>
+    <string name="file_list_empty_recently_modified_filter">¡No se encontraron archivos para su búsqueda que hayan sido modificados 
+en los últimos 7 días!</string>
+    <string name="file_list_empty_recently_added">No se encontraron archivos agregados recientemente</string>
+    <string name="file_list_empty_recently_added_filter">¡No se encontraron archivos agregados recientemente para su consulta!</string>
+    <string name="file_list_empty_text_photos">¡Cargue algunas fotos o active la carga automática!</string>
+    <string name="file_list_empty_text_photos_filter">¡Ninguna foto fue encontrada para su búsqueda!</string>
+    <string name="file_list_empty_text_videos">¡Cargue algunos videos o active la carga automática!</string>
+    <string name="file_list_empty_text_videos_filter">¡No se encontraron videos para su búsqueda!</string>
     <string name="upload_list_empty_headline">No hay cargas disponibles</string>
     <string name="upload_list_empty_text">¡Cargue nuevo contenido o active la carga instantánea!</string>
+    <string name="upload_list_empty_text_auto_upload">¡Cargue algún contenido o active la carga automática!</string>
     <string name="file_list_folder">carpeta</string>
     <string name="file_list_folders">carpetas</string>
     <string name="file_list_file">archivo</string>
@@ -205,7 +231,7 @@
     <string name="media_err_io">El archivo no ha podido ser leído</string>
     <string name="media_err_malformed">El archivo no ha sido codificado correctamente</string>
     <string name="media_err_timeout">Tiempo de espera expirado al intentar reproducir</string>
-    <string name="media_err_invalid_progressive_playback">Archivo de medio no puede ser transmitido</string>
+    <string name="media_err_invalid_progressive_playback">Archivo de medio no puede ser transmitido como flujo</string>
     <string name="media_err_unknown">El archivo de medios no se puede reproducir con el reproductor de medios por defecto </string>
     <string name="media_err_security_ex">Se presentó un error de seguridad al intentar reproducir %1$s</string>
     <string name="media_err_io_ex">Se presentó un error en la entrada de datos al intentar reproducir %1$s</string>
@@ -224,14 +250,14 @@
 	<string name="auth_account_not_new">Una cuenta para el mismo usuario y servidor ya existe en el dispositivo</string>
 	<string name="auth_account_not_the_same">El usuario ingresado no corresponde con el usuario de esta cuenta</string>
 	<string name="auth_unknown_error_title">¡Se presentó un error desconocido!</string>
-	<string name="auth_unknown_host_title">No se pudo encontrar el servidor</string>
+	<string name="auth_unknown_host_title">No fue posible encontrar el servidor</string>
 	<string name="auth_incorrect_path_title">No se encontró la instancia del servidor</string>
 	<string name="auth_timeout_title">El servidor tardó demasiado en responder</string>
 	<string name="auth_incorrect_address_title">Formato de dirección del servidor erróneo</string>
 	<string name="auth_ssl_general_error_title">Falla en la inicialización de SSL</string>
-	<string name="auth_ssl_unverified_server_title">No ha sido posible verificar la identidad del servidor SLL</string>
+	<string name="auth_ssl_unverified_server_title">No fue posible verificar la identidad del servidor SSL</string>
 	<string name="auth_bad_oc_version_title">Versión del servidor no reconocida</string>
-	<string name="auth_wrong_connection_title">No ha sido posible establecer la conexión</string>
+	<string name="auth_wrong_connection_title">No fue posible establecer la conexión</string>
 	<string name="auth_secure_connection">Conexión segura establecida</string>
 	<string name="auth_unauthorized">Nombre de usuario o contraseña incorrecto</string>
 	<string name="auth_oauth_error">Autorización no exitosa</string>
@@ -249,6 +275,8 @@
     
     <string name="favorite">Establer como disponible fuera de línea</string>
     <string name="unfavorite">Establecer como disponible en línea</string>
+    <string name="favorite_real">Establecer como favorito</string>
+    <string name="unset_favorite_real">Quitar de los favoritos</string>
     <string name="common_rename">Renombrar</string>
     <string name="common_remove">Eliminar</string>
     <string name="confirmation_remove_file_alert">¿Realmente desea eliminar %1$s?</string>
@@ -310,11 +338,11 @@
     <string name="placeholder_timestamp">2012/05/18 12:23 PM</string>
     <string name="placeholder_media_time">12:23:45</string>
 
-    <string name="auto_upload_on_wifi">Cargar solo mediante WiFi</string>
+    <string name="auto_upload_on_wifi">Cargar sólo mediante WiFi</string>
     <string name="instant_upload_on_wifi">Cargar imágenes a través de WiFi únicamente</string>
     <string name="instant_video_upload_on_wifi">Cargar videos a través de WiFi únicamente</string>
-    <string name="instant_video_upload_on_charging">Cargar archivos solo con el dispositivo conectado a la toma de corriente</string>
-    <string name="instant_upload_on_charging">Cargar archivos solo con el dispositivo conectado a la toma de corriente</string>
+    <string name="instant_video_upload_on_charging">Cargar archivos sólo con el dispositivo conectado a la toma de corriente</string>
+    <string name="instant_upload_on_charging">Cargar archivos sólo con el dispositivo conectado a la toma de corriente</string>
     <string name="instant_upload_path">/CargasInstantáneas</string>
     <string name="conflict_title">Conflicto de archivo</string>
     <string name="conflict_message">¿Qué archivos desea mantener? Si selecciona ambas versiones, se le agregará un número al nombre del archivo local.</string>
@@ -324,7 +352,7 @@
 
     <string name="preview_sorry">¡Disculpas por eso!</string>
     <string name="preview_image_description">Vista previa de imagen</string>
-    <string name="preview_image_error_unknown_format">Esta imagen no puede ser mostrada</string>
+    <string name="preview_image_error_unknown_format">La imagen no puede ser mostrada</string>
 
     <string name="error__upload__local_file_not_copied">%1$s no pudo ser copiado a la carpeta local %2$s</string>
     <string name="prefs_instant_upload_path_title">Carpeta de carga instantánea</string>
@@ -334,7 +362,7 @@
     <string name="prefs_instant_upload_path_use_subfolders_summary">Almacenar en sub carpetas con base en el año y mes</string>
 
 	<string name="share_link_no_support_share_api">Lo sentimos, no se permite compartir en su servidor. Favor de contactar a su adminstrador. </string>
-	<string name="share_link_file_no_exist">Falla al compartir. Favor de revisar si el archivo existe</string>
+	<string name="share_link_file_no_exist">No fue posible compartir. Favor de revisar si el archivo existe</string>
 	<string name="share_link_file_error">Se presentó un error al trtatar de compartir este archivo o carpeta</string>
 	<string name="unshare_link_file_no_exist">Falla al dejar de compartir. Favor de revisar si existe el archivo</string>
 	<string name="unshare_link_file_error">Se presentó un error al tratar de dejar de compartir este archivo o carpeta</string>
@@ -493,7 +521,7 @@
     <string name="action_retry_uploads">Falla en el reintento</string>
     <string name="action_clear_failed_uploads">Borrar fallidos</string>
     <string name="action_clear_successful_uploads">Borrar exitosos</string>
-    <string name="action_clear_finished_uploads">Borrar completados</string>
+    <string name="action_clear_finished_uploads">Borrar todos los completados</string>
 
     <string name="action_switch_grid_view">Vista de cuadrícula</string>
     <string name="action_switch_list_view">Vista de lista</string>
@@ -540,6 +568,7 @@
         <item quantity="other">%d seleccionado</item>
     </plurals>
 
+    <string name="activity_list_loading_activity">Cargando actividades&#8230;</string>
     <string name="activity_list_no_results">No se encontraron actividades. </string>
 
     <string name="upload_file_dialog_title">Ingrese el nombre del archivo y el tipo del archivo a cargar</string>
@@ -580,4 +609,7 @@
 
     <!-- Activities -->
     <string name="activities_no_results_headline">Aún no hay actividades</string>
-    </resources>
+    <string name="activities_no_results_message">Este flujo le mostrará eventos tales como \nagregados, cambios &amp; compartidos</string>
+
+
+</resources>
