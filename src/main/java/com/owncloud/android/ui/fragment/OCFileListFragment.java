@@ -35,6 +35,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -91,6 +92,7 @@ import com.owncloud.android.ui.preview.PreviewMediaFragment;
 import com.owncloud.android.ui.preview.PreviewTextFragment;
 import com.owncloud.android.utils.DisplayUtils;
 import com.owncloud.android.utils.FileStorageUtils;
+import com.owncloud.android.utils.MimeTypeUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -151,6 +153,8 @@ public class OCFileListFragment extends ExtendedListFragment implements OCFileLi
 
     private SearchType currentSearchType;
     private boolean searchFragment = false;
+    private SearchEvent searchEvent;
+    private AsyncTask remoteOperationAsyncTask;
 
     private enum MenuItemAddRemove {
         DO_NOTHING, REMOVE_SORT, REMOVE_GRID_AND_SORT, ADD_SORT, ADD_GRID_AND_SORT, ADD_GRID_AND_SORT_WITH_SEARCH,
@@ -170,6 +174,7 @@ public class OCFileListFragment extends ExtendedListFragment implements OCFileLi
         mProgressBarActionModeColor = getResources().getColor(R.color.action_mode_background);
         mProgressBarColor = getResources().getColor(R.color.primary);
         mMultiChoiceModeListener = new MultiChoiceModeListener();
+        searchFragment = false;
     }
 
     /**
@@ -282,12 +287,20 @@ public class OCFileListFragment extends ExtendedListFragment implements OCFileLi
     @Override
     public void onResume() {
         super.onResume();
+
+        if (remoteOperationAsyncTask != null) {
+            remoteOperationAsyncTask.cancel(true);
+        }
     }
 
     @Override
     public void onDetach() {
         setOnRefreshListener(null);
         mContainerActivity = null;
+
+        if (remoteOperationAsyncTask != null) {
+            remoteOperationAsyncTask.cancel(true);
+        }
         super.onDetach();
     }
 
@@ -341,8 +354,8 @@ public class OCFileListFragment extends ExtendedListFragment implements OCFileLi
             }
         }
 
-        SearchEvent searchEvent = Parcels.unwrap(getArguments().getParcelable(OCFileListFragment.SEARCH_EVENT));
-        if (searchEvent != null){
+        searchEvent = Parcels.unwrap(getArguments().getParcelable(OCFileListFragment.SEARCH_EVENT));
+        if (searchEvent != null) {
             onMessageEvent(searchEvent);
         }
     }
@@ -670,6 +683,26 @@ public class OCFileListFragment extends ExtendedListFragment implements OCFileLi
         ((FileActivity) getActivity()).addDrawerListener(mMultiChoiceModeListener);
     }
 
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            mAdapter = new FileListListAdapter(
+                    mJustFolders,
+                    getActivity(),
+                    mContainerActivity,
+                    this,
+                    mContainerActivity.getStorageManager());
+
+            searchEvent = Parcels.unwrap(savedInstanceState.getParcelable(SEARCH_EVENT));
+        }
+
+        if (searchEvent != null) {
+            onMessageEvent(searchEvent);
+        }
+    }
+
     /**
      * Saves the current listed folder.
      */
@@ -810,6 +843,8 @@ public class OCFileListFragment extends ExtendedListFragment implements OCFileLi
                 if (PreviewImageFragment.canBePreviewed(file)) {
                     // preview image - it handles the download, if needed
                     ((FileDisplayActivity) mContainerActivity).startImagePreview(file);
+                } else if (file.isDown() && MimeTypeUtil.isVCard(file)){
+                    ((FileDisplayActivity) mContainerActivity).startContactListFragment(file);
                 } else if (PreviewTextFragment.canBePreviewed(file)) {
                     ((FileDisplayActivity) mContainerActivity).startTextPreview(file);
                 } else if (file.isDown()) {
@@ -952,6 +987,11 @@ public class OCFileListFragment extends ExtendedListFragment implements OCFileLi
 
     public void refreshDirectory() {
         searchFragment = false;
+
+        if (remoteOperationAsyncTask != null) {
+            remoteOperationAsyncTask.cancel(true);
+        }
+
         listDirectory(getCurrentFile(), MainApp.isOnlyOnDevice(), false);
     }
 
@@ -1199,9 +1239,12 @@ public class OCFileListFragment extends ExtendedListFragment implements OCFileLi
                 GRID_IS_PREFERED_PREFERENCE, Context.MODE_PRIVATE
         );
 
-        SharedPreferences.Editor editor = setting.edit();
-        editor.putBoolean(String.valueOf(mFile.getFileId()), setGrid);
-        editor.apply();
+        // can be in case of favorites, shared
+        if (mFile != null) {
+            SharedPreferences.Editor editor = setting.edit();
+            editor.putBoolean(String.valueOf(mFile.getFileId()), setGrid);
+            editor.apply();
+        }
     }
 
     private void unsetAllMenuItems(final boolean unsetDrawer) {
@@ -1312,25 +1355,32 @@ public class OCFileListFragment extends ExtendedListFragment implements OCFileLi
 
         final Account currentAccount = AccountUtils.getCurrentOwnCloudAccount(MainApp.getAppContext());
 
-        AsyncTask task = new AsyncTask() {
+        remoteOperationAsyncTask = new AsyncTask() {
             @Override
             protected Object doInBackground(Object[] params) {
-                RemoteOperationResult remoteOperationResult = remoteOperation.execute(currentAccount, getContext());
+                if (getContext() != null && !isCancelled()) {
+                    RemoteOperationResult remoteOperationResult = remoteOperation.execute(currentAccount, getContext());
 
-                if (remoteOperationResult.isSuccess() && remoteOperationResult.getData() != null) {
-                    mAdapter.setData(remoteOperationResult.getData(), currentSearchType);
+                    if (remoteOperationResult.isSuccess() && remoteOperationResult.getData() != null
+                            && !isCancelled() && searchFragment) {
+                        mAdapter.setData(remoteOperationResult.getData(), currentSearchType);
+                    }
+
+                    return remoteOperationResult.isSuccess();
+                } else {
+                    return false;
                 }
-
-                return remoteOperationResult.isSuccess();
             }
 
             @Override
             protected void onPostExecute(Object o) {
-                mAdapter.notifyDataSetChanged();
+                if (!isCancelled()) {
+                    mAdapter.notifyDataSetChanged();
+                }
             }
         };
 
-        task.execute(true);
+        remoteOperationAsyncTask.execute(true);
 
         if (event.getSearchType().equals(SearchOperation.SearchType.FILE_SEARCH)) {
             setEmptyListMessage(SearchType.FILE_SEARCH);
@@ -1386,5 +1436,15 @@ public class OCFileListFragment extends ExtendedListFragment implements OCFileLi
     public void onStop() {
         EventBus.getDefault().unregister(this);
         super.onStop();
+    }
+
+
+    @Override
+    public void onRefresh() {
+        super.onRefresh();
+
+        if (searchEvent != null) {
+            onMessageEvent(searchEvent);
+        }
     }
 }

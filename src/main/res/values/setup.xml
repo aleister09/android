@@ -37,6 +37,13 @@
     <bool name = "share_via_link_feature">true</bool>
     <bool name = "share_with_users_feature">true</bool>
     <bool name="show_whats_new">true</bool>
+    <bool name="show_external_links">true</bool>
+    
+    // Contacts backup
+    <bool name="contacts_backup">true</bool>
+    <string name="contacts_backup_folder">/Contacts-Backup</string>
+    <integer name="contacts_backup_expire">-1</integer>
+    
     <!-- To fill if you want to show webviews instead of regular welcome views -->
     <array name="whatsnew_urls"></array>
     
@@ -81,6 +88,7 @@
     <bool name="bottom_toolbar_enabled">false</bool>
 
     <!-- Help, imprint and feedback -->
+    <bool name="fingerprint_enabled">true</bool>
     <bool name="calendar_contacts_enabled">true</bool>
     <bool name="help_enabled">true</bool>
     <bool name="imprint_enabled">false</bool> 
